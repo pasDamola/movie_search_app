@@ -1,10 +1,9 @@
-import {useState} from 'react'
 
-function MoviesDisplay({ movies }) {
+function MovieCard({ movies }) {
 
 
      return (
-             <div className="card-list">
+          <>
                 {movies.filter(movie => movie.poster_path).map(movie => (
                     <div className="card" key={movie.id}>
                         <img className="card--image"
@@ -20,8 +19,8 @@ function MoviesDisplay({ movies }) {
 
                     </div>
                 ))}
-            </div> 
+            </> 
      )
  }
 
- export default MoviesDisplay
+ export default MovieCard

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MoviesDisplay from './MoviesDisplay'
+import MovieCardList from './MovieCardList'
 
 
 function SearchMovies () {
@@ -31,7 +31,7 @@ function SearchMovies () {
                     />
                 <button className="button" type="submit">Search</button>
             </form>
-            <MoviesDisplay movies={movies}/>
+            <MovieCardList movies={movies}/>
    
     </>
     )
