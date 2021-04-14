@@ -1,7 +1,5 @@
 
 function MovieCard({ movies }) {
-
-
      return (
           <>
                 {movies.filter(movie => movie.poster_path).map(movie => (

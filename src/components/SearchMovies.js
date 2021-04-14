@@ -13,9 +13,10 @@ function SearchMovies () {
         const url = `https://api.themoviedb.org/3/search/movie?api_key=87ce4a6f312ae195dacc5280a2ced1f1&language=en-US&query=${query}&page=1&include_adult=false`;
         
         try {
-            const res = await fetch(url);
-            const data  = await res.json();
-            setMovies(data.results);
+            const res = await fetch(url)
+            const data  = await res.json()
+            data.results.sort((a, b) => b.vote_average - a.vote_average)
+            setMovies(data.results)
         }catch(err){
             console.error(err);
         }
