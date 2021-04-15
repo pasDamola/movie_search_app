@@ -15,6 +15,7 @@ function SearchMovies () {
         try {
             const res = await fetch(url)
             const data  = await res.json()
+            // sort items in descending order based on rating
             data.results.sort((a, b) => b.vote_average - a.vote_average)
             setMovies(data.results)
         }catch(err){
