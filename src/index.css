@@ -104,9 +104,11 @@ small {
   text-align: center;
   color: red;
   font-size: 3rem;
+  margin-top: 100px;
 }
 
 .welcome {
   text-align: center;
   font-size: 3rem;
+  margin-top: 100px;
 }
