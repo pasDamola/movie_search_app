@@ -1,6 +1,6 @@
 function ErrorMessage({ query }) {
     return (
-        <h2>Sorry no movies exist in the database from '${query}' search</h2>
+        <h2 className="error">Sorry no movies exist in the database from '{query}' search</h2>
     )
 }
 

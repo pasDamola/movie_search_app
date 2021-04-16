@@ -99,3 +99,14 @@ small {
   margin: 0 auto;
   display: block
 }
+
+.error {
+  text-align: center;
+  color: red;
+  font-size: 3rem;
+}
+
+.welcome {
+  text-align: center;
+  font-size: 3rem;
+}

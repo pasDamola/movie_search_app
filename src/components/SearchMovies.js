@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import MovieCardList from './MovieCardList'
 import ErrorMessage from './ErrorMessage'
+import WelcomeMessage from './WelcomeMessage'
 
 
 function SearchMovies () {
     const [query, setQuery] = useState('')
     const [movies, setMovies] = useState([])
+    const [request, setRequest] = useState(false)
 
     const searchMovies = async (e) => {
         e.preventDefault();
@@ -19,6 +21,7 @@ function SearchMovies () {
             // sort items in descending order based on rating
             data.results.sort((a, b) => b.vote_average - a.vote_average)
             setMovies(data.results)
+            setRequest(true)
         }catch(err){
             console.error(err);
         }
@@ -34,11 +37,23 @@ function SearchMovies () {
                     />
                 <button className="button" type="submit">Search</button>
             </form>
-            <h2 className="welcomeMessage">Please search for any movie title of your choice in the search bar above</h2>
-            {
-                movies.length > 0 ? <MovieCardList movies={movies}/> : 
-                <ErrorMessage query={query} />
+            {(function() {
+                if (request === false) {
+                    return <WelcomeMessage />;
+                } else if(request && movies.length < 1){
+                    return <ErrorMessage query={query}/>;
+                }
+                else {
+                    return <MovieCardList movies={movies}/>;
+                }
+                })()
             }
+            {/* {(function(){
+                if(request === true && movies.length > 0){
+                    return
+                }
+            })()
+            } */}
             
    
     </>
