@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import MovieCardList from './MovieCardList'
+import ErrorMessage from './ErrorMessage'
 
 
 function SearchMovies () {
@@ -33,7 +34,12 @@ function SearchMovies () {
                     />
                 <button className="button" type="submit">Search</button>
             </form>
-            <MovieCardList movies={movies}/>
+            <h2 className="welcomeMessage">Please search for any movie title of your choice in the search bar above</h2>
+            {
+                movies.length > 0 ? <MovieCardList movies={movies}/> : 
+                <ErrorMessage query={query} />
+            }
+            
    
     </>
     )
